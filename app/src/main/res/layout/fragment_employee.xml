@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmployeeFragment"
+    android:id="@+id/employee"
+    android:background="@drawable/back2">
+
+    <TextView
+        android:id="@+id/employee_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Employee"
+        android:textSize="50sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        android:textColor="#444242"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp"
+        android:background="#40444242"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:text="Previous Customer ?"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--            android:textColor="#444242" />-->
+
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/yesCheck"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Yes"-->
+<!--            android:textColor="#444242" />-->
+
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/noCheck"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="No"-->
+<!--            android:textColor="#444242" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="ID of the Employee:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#444242" />
+
+
+        <EditText
+            android:id="@+id/employeeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="Employee ID (1-4)"
+            android:textColor="#444242" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add_employee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_horizontal"
+                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4a7542"
+                android:text="ADD" />
+
+            <Button
+                android:id="@+id/delete_employee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4a7542"
+                android:text="delete" />
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/ListEmployee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

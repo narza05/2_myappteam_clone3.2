@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SummaryFragment"
+    android:id="@+id/summary"
+    android:background="@drawable/back2">
+
+    <TextView
+        android:id="@+id/summary_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Summary Of Sales"
+        android:textSize="50sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        android:textColor="#444242"/>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/piechart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+
+    <!--    < com.anychart.AnyChartView-->
+    <!--        android:id=" @+id/any_chart_view "-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        android:layout_below="@+id/summary_text" />-->
+
+</LinearLayout>
