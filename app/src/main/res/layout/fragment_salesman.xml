@@ -11,14 +11,14 @@
         android:id="@+id/salesman_heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salesman"
-        android:textSize="50sp"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="70dp"
         android:fontFamily="serif-monospace"
-        android:textStyle="bold"
-        android:textColor="#444242"/>
+        android:gravity="center_horizontal"
+        android:text="Salesman"
+        android:textColor="#444242"
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
 
     <LinearLayout
