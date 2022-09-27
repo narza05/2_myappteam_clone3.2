@@ -13,8 +13,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -29,7 +27,7 @@ public class LeadsFragment extends Fragment {
     Button deletebtn;
     ListView listView;
 
-    LeadsDatabaseHelper leadsDatabaseHelper;
+    DatabaseHelper DatabaseHelper;
     ArrayList arrayList;
     ArrayAdapter arrayAdapter;
 
@@ -58,7 +56,7 @@ public class LeadsFragment extends Fragment {
                 //Get text from EditText
                 String text = leadsname.getText().toString();
                 if (!text.isEmpty()) {
-                    if (leadsDatabaseHelper.addText(text)) {
+                    if (DatabaseHelper.addText(text,"TABLE_LEADS")) {
                        leadsname.setText(""); //ClearText
 
                         //Display Toast message
@@ -84,7 +82,7 @@ public class LeadsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String name = leadsname.getText().toString();
-                boolean deletename = leadsDatabaseHelper.deleteText(name);
+                boolean deletename = DatabaseHelper.deleteText(name,"TABLE_LEADS");
                 if (deletename){
                     leadsname.setText("");
                     Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
@@ -100,10 +98,10 @@ public class LeadsFragment extends Fragment {
 
     public void refresh(){
         //Initialize DatabaseHelper
-        leadsDatabaseHelper = new LeadsDatabaseHelper(getActivity());
+        DatabaseHelper = new DatabaseHelper(getActivity());
 
         //Add Database Values to ArrayList
-        arrayList = leadsDatabaseHelper.getAllText();
+        arrayList = DatabaseHelper.getAllText("TABLE_LEADS");
 
         //Initialize ArrayAdapter
         arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1,arrayList); // use getActivity in Fragment instead of this

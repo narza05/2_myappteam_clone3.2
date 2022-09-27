@@ -78,7 +78,12 @@ public class ChatFragment extends Fragment {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 Toast.makeText(getActivity(), "Sent", Toast.LENGTH_SHORT).show();
-                getChildFragmentManager().beginTransaction().replace(R.id.chat, new InboxFragment()).commit();
+                try {
+                    getChildFragmentManager().beginTransaction().replace(R.id.chat, new InboxFragment()).commit();
+                }
+                catch(Exception e){
+                    System.out.println(e);
+                }
             }
         })
                 .addOnFailureListener(new OnFailureListener() {

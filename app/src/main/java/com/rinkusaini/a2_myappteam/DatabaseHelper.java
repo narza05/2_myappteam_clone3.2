@@ -9,31 +9,48 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-public class LeadsDatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Initialize Database Name and Table Name
     private static final String DATABASE_NAME = "database_leads";
-    private static final String TABLE_NAME = "table_leads";
+    private static final String TABLE_CHAT = "table_chat";
+    private static final String TABLE_LEADS = "table_leads";
+    private static final String TABLE_SALESMAN = "table_salesman";
+    private static final String TABLE_EMPLOYEE = "table_employee";
+    private static final String TABLE_TARGET = "table_target";
 
-    LeadsDatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+    DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Create Table
-        String createTable = "create table " + TABLE_NAME + "(id INTEGER PRIMARY KEY, txt TEXT)";
-        db.execSQL(createTable);
+        String table_chat = "create table " + TABLE_CHAT + "(id INTEGER PRIMARY KEY, txt TEXT)";
+        String table_leads = "create table " + TABLE_LEADS+ "(id INTEGER PRIMARY KEY, txt TEXT)";
+        String table_salesman = "create table " + TABLE_SALESMAN + "(id INTEGER PRIMARY KEY, txt TEXT)";
+        String table_employee = "create table " + TABLE_EMPLOYEE + "(id INTEGER PRIMARY KEY, txt TEXT)";
+        String table_target = "create table " + TABLE_TARGET + "(id INTEGER PRIMARY KEY, txt TEXT)";
+        db.execSQL(table_chat);
+        db.execSQL(table_leads);
+        db.execSQL(table_salesman);
+        db.execSQL(table_employee);
+        db.execSQL(table_target);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //Drop older table if exist
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHAT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LEADS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SALESMAN);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EMPLOYEE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TARGET);
         onCreate(db);
     }
 
-    public boolean addText(String text) {
+    public boolean addText(String text, String a) {
+        String TABLE_NAME = a;
         //Get Writeable Database
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
@@ -51,7 +68,8 @@ public class LeadsDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean deleteText(String text) {
+    public boolean deleteText(String text, String a) {
+        String TABLE_NAME = a;
         //Get Writeable Database
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery(" Select * from " + TABLE_NAME + " where txt = ?",new String[]{text});
@@ -70,7 +88,8 @@ public class LeadsDatabaseHelper extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public ArrayList getAllText() {
+    public ArrayList getAllText(String a) {
+        String TABLE_NAME = a;
         //Get readable Database
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         ArrayList<String> arrayList = new ArrayList<String>();
